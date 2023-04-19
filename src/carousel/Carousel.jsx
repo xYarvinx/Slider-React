@@ -9,13 +9,15 @@ export const Carousel = ({children}) => {
 
     const handleLeftArrowClick = () => {
         setOffset((currentOffset) => {
-            return currentOffset + 450
+            return Math.min(currentOffset + 450,0)
         })
     }
 
     const handleRightArrowClick = () => {
+
+        const maxOffset = -(450 * (pages.length - 1))
         setOffset((currentOffset) => {
-            return currentOffset - 450
+            return  Math.max(currentOffset - 450, maxOffset)
         })
     }
 
